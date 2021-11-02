@@ -6,6 +6,20 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JessicaZhangqq/crawler-filecoin.git"
+  },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JessicaZhangqq/crawler-filecoin/issues"
+  },
+  "homepage": "https://github.com/JessicaZhangqq/crawler-filecoin#readme",
+  "dependencies": {
+    "cheerio": "*",
+    "node-schedule": "^2.0.0",
+    "playwright": "^1.16.3",
+    "xlsx": "^0.17.3"
+  }
 }
