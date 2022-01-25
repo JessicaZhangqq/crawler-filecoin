@@ -1,3 +1,9 @@
+/*
+used for: get two filecoin addresses' balance from filescan
+ceated on: 02 Nov 2021
+Created by: Jessica Zhang
+Description: run on utc 0:00 every day
+*/
 // get target data from website using crawler
 
 const playwright = require('playwright');
@@ -6,8 +12,8 @@ const schedule = require('node-schedule');
 const xlsx = require('xlsx')
 
 const rule = new schedule.RecurrenceRule();
-rule.hour = 16;
-rule.minute = 25;
+rule.hour = 20;
+rule.minute = 00;
 
 
 
@@ -41,9 +47,10 @@ const addresses = ['f01238519','f01264125']
         });
         const account = fruits[9];
         const availabe = fruits[10];
-        const preCommitDeposits = fruits[11];
-        const lockedRewards = fruits[12];
-        const qualityPower = fruits[13];
+        const sectorDeposits = fruits[11];
+        const preCommitDeposits = fruits[12];
+        const lockedRewards = fruits[13];
+        const qualityPower = fruits[14];
         // total all values
         $('div.value').each(function(i, elem) {
           values[i] = $(this).text();
@@ -59,10 +66,12 @@ const addresses = ['f01238519','f01264125']
           "account": account,
           "Date" : new Date(),
           "total Balance" : totalBalance,
+          "sector Deposits": sectorDeposits,
           "availabe" : availabe,
           "pre Commit Deposits": preCommitDeposits,
           "locked Rewards" : lockedRewards,
-          "quality Power" : qualityPower
+          "quality Power" : qualityPower,
+          "Total reward" : totalReward
         }
         data.push(newRecord)
         newLength = data.length;
